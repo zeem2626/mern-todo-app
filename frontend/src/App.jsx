@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser, logoutUser } from "./redux/slice/user.slice.js";
 import styled, { ThemeProvider } from "styled-components";
 import Navbar from "./components/Navbar";
+import Loading from "./pages/Loading.jsx";
 import { useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
 import conf from "./conf/conf.js";
@@ -31,27 +32,27 @@ function App() {
          });
 
          console.log(res.data.data.user);
-         dispatch(loadingEnd())
-         dispatch(loginUser(res.data.data.user))
-        } catch (error) {
-          console.log(error);
-          dispatch(loadingEnd())
-          dispatch(logoutUser())
+         dispatch(loadingEnd());
+         dispatch(loginUser(res.data.data.user));
+      } catch (error) {
+         console.log(error);
+         dispatch(loadingEnd());
+         dispatch(logoutUser());
       }
    };
 
    useEffect(() => {
       getCurrentUser();
-      if(!loading && !userStatus){
-        navigate("/auth/login")
+      if (!loading && !userStatus) {
+         navigate("/auth/login");
       }
       console.log("App");
-
    }, [userStatus]);
 
    return (
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
          <Container>
+            {loading ? <Loading /> : ""}
             {userStatus ? <Navbar /> : ""}
             <Outlet />
          </Container>

@@ -12,9 +12,10 @@ const Container = styled.div`
    top: 0;
    left: 0;
    display: flex;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
-   font-size: 1.6rem;
+   font-size: 1.4rem;
    font-weight: 600;
 `;
 
@@ -39,7 +40,7 @@ const Loading = () => {
    return (
       <Container>
          <h1>Loading...</h1>
-         <h1>{serverWarning}</h1>
+         <p>{serverWarning}</p>
       </Container>
    );
 };

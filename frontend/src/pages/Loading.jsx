@@ -14,7 +14,7 @@ const Container = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
-   font-size: 2rem;
+   font-size: 1.7rem;
    font-weight: 600;
 `;
 
@@ -25,7 +25,7 @@ const Loading = () => {
    const notification = async () => {
       setTimeout(() => {
          if (loading) {
-            setServerNotify("Please wait, Server is initialising");
+            setServerNotify("Server is initialising...");
          } else {
             setServerNotify("");
          }

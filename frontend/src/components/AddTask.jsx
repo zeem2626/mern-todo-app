@@ -75,6 +75,9 @@ const AddTask = ({ fetchTasks }) => {
       );
 
       console.log(res.data);
+      setTitle("");
+      setContent("");
+      setDueDate("");
       fetchTasks();
    };
 

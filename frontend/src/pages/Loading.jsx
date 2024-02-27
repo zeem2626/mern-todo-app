@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -18,7 +19,29 @@ const Container = styled.div`
 `;
 
 const Loading = () => {
-   return <Container>Loading...</Container>;
+   const [serverWarning, setServerNotify] = useState("");
+   const loading = useSelector((state) => state.loading.status);
+
+   const notification = async () => {
+      setTimeout(() => {
+         if (loading) {
+            setServerNotify("Please wait, Server is initialising");
+         } else {
+            setServerNotify("");
+         }
+      }, 2 * 1000);
+   };
+
+   useEffect(()=>{
+    notification();
+   })
+
+   return (
+      <Container>
+         <h1>Loading...</h1>
+         <h1>{serverWarning}</h1>
+      </Container>
+   );
 };
 
 export default Loading;

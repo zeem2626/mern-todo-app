@@ -14,7 +14,7 @@ const Container = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
-   font-size: 1.7rem;
+   font-size: 1.6rem;
    font-weight: 600;
 `;
 

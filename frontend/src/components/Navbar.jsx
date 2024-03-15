@@ -65,7 +65,7 @@ const Navbar = () => {
    return (
       <Container>
          <Wrapper>
-            <h1>Hello {userData?.fullName.split(" ")[0]}</h1>
+            <h1>Hello, {userData?.fullName.split(" ")[0]}</h1>
             <Button onClick={logout}>
                <HiOutlineLogout style={{ fontSize: "2rem" }} />
             </Button>
